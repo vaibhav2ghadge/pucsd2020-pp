@@ -5,6 +5,7 @@ float value(char ch,float a,float b){
         case '-':return b-a;
         case '*':return a*b;
         case '/':return b/a;
+        case '%':return a*b/100;
     }
     return 0;
 }
