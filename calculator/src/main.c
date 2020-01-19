@@ -15,7 +15,7 @@ int main()
     ex->intStack->top = -1;
     //scanf("%s",ex->expression);
     //printf("%s ",ex->expression);
-    ex->expression="1+2+3+4+55";
+    ex->expression="1+10*2";
     printf("\n ans %d ",evalute(ex));
     return 0; 
 } 

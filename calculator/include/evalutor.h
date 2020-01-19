@@ -44,7 +44,7 @@ int precendence(char a,char b)
         return 0;
     //kept this bcz we can understand the logic
     else if((a=='+'||a=='-')&&(b=='*'||b=='/'))
-        return 1;
+        return 0;
     return 1;
 }
 int evalute(struct expre *exp){
@@ -81,7 +81,7 @@ int evalute(struct expre *exp){
            //printf("top of stack %d ",exp->intStack->stack[exp->intStack->top]);
         }
         else if(exp->expression[i]==')'){
-            while(!isCharStackEmpty(exp->charStack) && exp->charStack->stack[exp->charStack->top]!='('){
+            while(isCharStackEmpty(exp->charStack) && exp->charStack->stack[exp->charStack->top]!='('){
                   int no1 = exp->intStack->stack[exp->intStack->top];
                     --exp->intStack->top;
                     int no2 = exp->intStack->stack[exp->intStack->top];
@@ -89,7 +89,7 @@ int evalute(struct expre *exp){
                     exp->intStack->stack[++exp->intStack->top] = value(exp->charStack->stack[exp->charStack->top],no1,no2);
                     --exp->charStack->top;
             }
-            if(!isCharStackEmpty(exp->charStack))
+            if(isCharStackEmpty(exp->charStack))
             --exp->charStack->top;
              printf("after %d ",exp->intStack->stack[exp->intStack->top]);
         }
@@ -111,8 +111,5 @@ int evalute(struct expre *exp){
         printf("\nbefore return %d",exp->intStack->stack[exp->intStack->top]);
     return exp->intStack->stack[exp->intStack->top];
     }
-    //s int stack
-    //st char stack
-
 
 
