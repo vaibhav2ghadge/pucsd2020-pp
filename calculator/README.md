@@ -1,4 +1,4 @@
-calculator that support +,-,/,%,(,) operator with precendence 
+calculator that support +,-,/,%,(,) operator with precendence \n 
 Clone the repo.
 make build
 ./a.out
