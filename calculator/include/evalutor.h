@@ -19,7 +19,8 @@ float evalute(struct expre *exp){
         else if(exp->expression[i]=='+'||
                 exp->expression[i]=='-'||
                 exp->expression[i]=='*'||
-                exp->expression[i]=='/'){
+                exp->expression[i]=='/'||
+                exp->expression[i]=='%'){
             while (isCharStackEmpty(exp->charStack) && precendence(exp->charStack->stack[exp->charStack->top],exp->expression[i])){
                     float no1 = exp->intStack->stack[exp->intStack->top];
                     --exp->intStack->top;

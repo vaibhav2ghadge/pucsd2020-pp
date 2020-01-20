@@ -29,7 +29,7 @@ int precendence(char a,char b)
     if(a=='('||a==')')
         return 0;
     //kept this bcz we can understand the logic
-    else if((a=='+'||a=='-')&&(b=='*'||b=='/'))
+    else if((a=='+'||a=='-')&&(b=='*'||b=='/' ||b=='%'))
         return 0;
     return 1;
 }
