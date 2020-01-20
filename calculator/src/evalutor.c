@@ -1,6 +1,6 @@
 #include <string.h>
-#include<stdlib.h>
-#include "calculation.h"
+
+#include "../include/header.h"
 float evalute(struct expre *exp){
     int i=0;
     for(i=0;i<strlen(exp->expression);i++){

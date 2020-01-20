@@ -1,6 +1,6 @@
 build:
-		gcc ./src/main.c
+		gcc ./src/main.c ./src/utils/memory.c ./src/calculation.c ./src/evalutor.c ./src/operations/add.c ./src/operations/sub.c ./src/operations/mul.c ./src/operations/div.c ./src/operations/per.c
 Test:
-		gcc -o ./Test ./test/main_test.c
+		gcc -o ./Test ./test/main_test.c ./src/utils/memory.c ./src/calculation.c ./src/evalutor.c ./src/operations/add.c ./src/operations/sub.c ./src/operations/mul.c ./src/operations/div.c ./src/operations/per.c
 clean:
-		rm a.out
+		rm a.out Test

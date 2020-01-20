@@ -1,11 +1,11 @@
-#include "types.h"
+#include "../include/header.h"
 float value(char ch,float a,float b){
     switch(ch){
-        case '+':return a+b;
-        case '-':return b-a;
-        case '*':return a*b;
-        case '/':return b/a;
-        case '%':return a*b/100;
+        case '+':return add(a,b);
+        case '-':return sub(a,b);
+        case '*':return mul(a,b);
+        case '/':return div1(a,b);
+        case '%':return per(a,b);
     }
     return 0;
 }
