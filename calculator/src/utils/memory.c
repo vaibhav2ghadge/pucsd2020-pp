@@ -3,7 +3,7 @@
 #include <mysql/mysql.h>
 
 
-struct expre* allocateMemory(){
+struct expre* allocateMemory(char *host, char *username, char *password){
     struct expre *ex = (struct expre*) malloc(sizeof(struct expre));
     ex->expression = (char*)malloc(sizeof(char)*100);
     ex->charStack = (struct stack2*) malloc(sizeof(struct stack2));
@@ -24,7 +24,7 @@ struct expre* allocateMemory(){
     }
     fputs("\nMemory allocation done for stack",ex->logger->infoLog->infoLog);
     //connecting to db
-    if (mysql_real_connect(ex->con, "localhost", "root", "as2d2p", NULL, 0, NULL, 0) == NULL) {
+    if (mysql_real_connect(ex->con, host, username, password, NULL, 0, NULL, 0) == NULL) {
         dberror(ex);
     }
      fputs("\nConnected Succefully to db",ex->logger->infoLog->infoLog);

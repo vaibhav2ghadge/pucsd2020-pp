@@ -2,9 +2,13 @@
 #include "../include/header.h"
 #include<string.h>
 const char *st = "INSERT INTO calculation(expression,answer) VALUES('%s','%f')";
-int main(){
+int main(int argc, char *argv[]){
 
-    struct expre *ex = allocateMemory();
+    if( argc <= 1 ){
+        fprintf(stdout,"Command line argumet missing ./a.out host username password\n");
+        exit(1);
+    }
+    struct expre *ex = allocateMemory(argv[1], argv[2], argv[3]);
     fputs("initialization done \n",ex->logger->infoLog->infoLog);
     scanf("%s",ex->expression);
     fputs(ex->expression,ex->logger->infoLog->infoLog);
