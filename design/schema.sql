@@ -1,11 +1,12 @@
 // TO DISTINGUISH BETWEEN ADMIN OR NORMAL USER
 CREATE TABLE IF NOT EXISTS usertype(
-	type varchar(20) PRIMARY KEY
+	id int AUTO_INCREMENT PRIMARY KEY,
+	user_roles varchar(20) UNIQUE KEY //will add roles like admin,read,write,execute
 	);
 
 CREATE TABLE IF NOT EXISTS user(
-
-	uname text(20) PRIMARY KEY,
+	userid int AUTO_INCREMENT PRIMARY KEY,
+	uname text(20) UNIQUE KEY,
 	upassword varchar(50),
 	usertype varchar(20) ,// for admin and normal user
 	CONSTRAINT fk_usertype FOREIGN KEY (usertype) REFERENCES usertype(type)
