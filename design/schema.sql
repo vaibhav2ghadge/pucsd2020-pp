@@ -25,8 +25,9 @@ CREATE TABLE IF NOT EXISTS user_group(
 
 );
 
-// resource is file and folder that we are creating
-//  in here parent is the paernt folder in that we are creating file or folder
+//idea behind hierarchical data  http://mikehillyer.com/articles/managing-hierarchical-data-in-mysql/ we can get full path in single query
+// resource is file or folder that we are creating
+//  in here parent is the parent folder in that we are creating file or folder
 CREATE TABLE IF NOT EXISTS resource(
 	rid int AUTO_INCREMENT PRIMARY KEY,
 	rname varchar(20),
@@ -35,11 +36,12 @@ CREATE TABLE IF NOT EXISTS resource(
  CONSTRAINT fk_user_resource FOREIGN KEY (parent) REFERENCES resource(rid)
 );
 
-
+//type is read or write
 CREATE TABLE IF NOT EXISTS permission(
 	ptype text(20) PRIMARY KEY
 );
-
+// which group have what permission to file or folder in case of folder we can derive it recursively
+//http://mikehillyer.com/articles/managing-hierarchical-data-in-mysql/ we can get full path in single query
 CREATE TABLE IF NOT EXISTS group_permission(
 	groupid int,
 	rid int,
